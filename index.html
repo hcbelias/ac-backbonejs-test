@@ -3,21 +3,35 @@
 <head>
 	<meta charset="utf-8">
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 
-<script id="questionTemplate" type="text/template">
+
+	<div class="sites-header-primary-row" id="sites-chrome-userheader">
+		<div class="sites-header-title">
+			<div class="sites-header-image-buffer-wrapper">
+				<a href="http://www.avenuecode.com.br/" id="sites-chrome-userheader-logo">
+					<img id="logo-img-id" src="img/customLogo.png" alt="Avenue Code Brasil" class="sites-logo ">
+				</a>
+				<h3>AC - Backbone Quizz</h3>
+			</div>
+		</div>
+		
+	</div>
+
+	<script id="questionTemplate" type="text/template">
 	<strong><%= Id %> - </strong> <%= Question %>
-</script>
+	</script>
 
 
-<script id="answerTemplate" type="text/template">
-	<li><%= Answer %></li>
-</script>
+	<script id="answerTemplate" type="text/template">
+	<%= Answer %>
+	</script>
 
-<script src="js/underscore.js"></script>
-<script src="js/jquery.js"></script>
-<script src="js/backbone.js"></script>
-<script src="js/main.js"></script>
+	<script src="js/underscore.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/backbone.js"></script>
+	<script src="js/main.js"></script>
 </body>
 </html>
