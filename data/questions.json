@@ -1,0 +1,35 @@
+[
+    {
+        "Id": "Ask1",
+        "Question": "Considering only the championships that took place from 1971, which brazilian football club is the greatest national champion?",
+		"Answer" : { "Answer1" : "São Paulo", "Answer2" : "Santos", "Answer3" : "Palmeiras", "Answer4" : "Cruzeiro", "Answer5" : "Flamengo"},
+        "CorrectAnswer": "Answer1",        
+    },
+	{
+        "Id": "Ask2",
+        "Question": "Who scored most goals by the brazilian national championship??",
+		"Answer" : { "Answer1" : "Romário", "Answer2" : "Edmundo", "Answer3" : "Washington", "Answer4" : "Reinaldo", "Answer5" : "Ronaldinho Gaúcho"},
+        "CorrectAnswer": "Answer4",        
+    },
+	
+	{
+        "Id": "Ask3",
+        "Question": "Who scored most goals by the brazilian national championship??",
+		"Answer" : { "Answer1" : "Romário", "Answer2" : "Edmundo", "Answer3" : "Washington", "Answer4" : "Reinaldo", "Answer5" : "Ronaldinho Gaúcho"},
+        "CorrectAnswer": "Answer1",        
+    },
+	
+	{
+        "Id": "Ask4",
+        "Question": "Who scored most goals by the brazilian national championship??",
+		"Answer" : { "Answer1" : "Romário", "Answer2" : "Edmundo", "Answer3" : "Washington", "Answer4" : "Reinaldo", "Answer5" : "Ronaldinho Gaúcho"},
+        "CorrectAnswer": "Answer1",        
+    },
+	
+	{
+        "Id": "Ask5",
+        "Question": "Who scored most goals by the brazilian national championship??",
+		"Answer" : { "Answer1" : "Romário", "Answer2" : "Edmundo", "Answer3" : "Washington", "Answer4" : "Reinaldo", "Answer5" : "Ronaldinho Gaúcho"},
+        "CorrectAnswer": "Answer1",        
+    }
+]
