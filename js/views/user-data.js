@@ -6,12 +6,12 @@
     };
 
 
-    App.Views.Answer = Backbone.View.extend({
-        tagName: 'li',
+    App.Views.User = Backbone.View.extend({
+        tagName: 'div',
 
-        className: 'answer',
+        className: 'user-data',
 
-        template: template('answerTemplate'),
+        template: template('personalDataTemplate'),
 
         initialize: function() {
             

@@ -20,21 +20,32 @@
 		
 	</div>
 
+
+
+	<div id='test'>
+	</div>
+
+	<button type="button" id="submit-result-button" onclick="onClickSubmitResultButton($(this))" title="Submit Answers">Submit Result</button>
+
 	<script id="questionTemplate" type="text/template">
-		<strong><%= Id %> - </strong> <%= Question %>
+		<div class="question-title"> <strong><%= Id %> - </strong> <%= Question %></div>
 	</script>
 
+	<script id="personalDataTemplate" type="text/template">
+		<label>Name</label> <input type='text' id='user-name'/> <br/> <label>Email</label> <input type='text' id='user-email'/>
+	</script>
 
 	<script id="answerTemplate" type="text/template">
-		<%= attributes.Answer %> <input type="checkbox" id="<%= attributes.QuestionId %>"+"_"+"<%= attributes.Answer %>"/> 
+		<%= attributes.Answer %> <input onclick="onClickAnswerCheckbox($(this))" type="checkbox" id="<%= attributes.QuestionId +'_'+ attributes.Answer%>"/> 
 	</script>
 
-	<script src="js/underscore.js"></script>
-	<script src="js/jquery.js"></script>
-	<script src="js/backbone.js"></script>
+	<script src="js/libs/underscore/underscore.js"></script>
+	<script src="js/libs/jquery/jquery.js"></script>
+	<script src="js/libs/backbone/backbone.js"></script>
 	
 	<script src="js/models/question.js"></script>
 	<script src="js/models/answer.js"></script>
+	<script src="js/models/user-data.js"></script>
 	
 	<script src="js/collections/quiz.js"></script>
 	
@@ -42,6 +53,7 @@
 	<script src="js/views/quiz.js"></script>
 	<script src="js/views/question.js"></script>
 	<script src="js/views/answer.js"></script>
+	<script src="js/views/user-data.js"></script>
 
 	
 	<script src="js/main.js"></script>

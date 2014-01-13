@@ -9,7 +9,8 @@
     App.Models.Answer = Backbone.Model.extend({
         defaults: {
             CorrectAnswer: 'None',
-            Answer: 'None'
+            Answer: 'None',
+            QuestionId: 0
         },
 
         isCorrectAnswer: function() {        
