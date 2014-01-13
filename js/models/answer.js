@@ -14,8 +14,8 @@
         },
 
         isCorrectAnswer: function() {        
-            var answer = this.get('Answer');
-            var correctAnswer = this.get('CorrectAnswer');
+            var answer = this.Answer;
+            var correctAnswer = this.CorrectAnswer;
             return answer == correctAnswer;
         }
     });

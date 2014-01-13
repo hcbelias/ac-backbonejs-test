@@ -1,8 +1,12 @@
 (function() {
-     App.Views.Quiz = Backbone.View.extend({    
+    App.Views.Quiz = Backbone.View.extend({    
         tagName: 'ul',
 
         className: 'quiz-question',
+
+        initialize: function() {
+            userAnswersList.fetch({error: function(m){ alert(m) }});
+        },
 
         render: function() {
             this.collection.each(function(question) {
@@ -10,7 +14,7 @@
                 this.$el.append(view.render().$el);
             }, this);
             return this;
-        }
+        },
 
     });
 
