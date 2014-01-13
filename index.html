@@ -21,12 +21,12 @@
 	</div>
 
 	<script id="questionTemplate" type="text/template">
-	<strong><%= Id %> - </strong> <%= Question %>
+		<strong><%= Id %> - </strong> <%= Question %>
 	</script>
 
 
 	<script id="answerTemplate" type="text/template">
-	<%= Answer %>
+		<%= attributes.Answer %> <input type="checkbox" id="<%= attributes.QuestionId %>"+"_"+"<%= attributes.Answer %>"/> 
 	</script>
 
 	<script src="js/underscore.js"></script>
