@@ -20,43 +20,58 @@
 		
 	</div>
 
-	<input type='text' id='user-name' name='user-name' placeholder='User Name'/>
-	<input type='text' id='user-email' name='user-email' placeholder='User Email'/>
-	<button type="button" id="submit-result-button" onclick="onClickSubmitResultButton($(this))" title="Submit Answers">Submit Result</button>
+	<div id='content-form'>
+	</div>	
 
 	<div id='content-body'>
 	</div>
 
+
+	<script id="formTemplate" type="text/template">
+		<input type='text' id='user-name' name='user-name' placeholder='User Name'/>
+		<input type='text' id='user-email' name='user-email' placeholder='User Email'/>
+		<button type="button" id="submit-result-button" title="Submit Answers">Submit Result</button>
+	</script>
 	
 
 	<script id="questionTemplate" type="text/template">
-		<div class="question-title"> <strong><%= Id %> - </strong> <%= Question %></div>
+		<div class="question-title"> <strong id='<%= Id %>'><%= Id %> - </strong> <%= Question %></div>
 	</script>
 
 	<script id="answerTemplate" type="text/template">
-		<input onclick="onClickAnswerCheckbox($(this))" type="checkbox"  id="<%= attributes.QuestionId +'_'+ attributes.Answer%>"/> <%= attributes.Answer %> 
+		<div name="<%= "question_"+attributes.QuestionId %>"><%= attributes.Answer %>
+	</script>
+
+	<script id="resultTemplate" type="text/template">
+		<div class="question-title"> <strong id='<%= Id %>'><%= Id %> - </strong> <%= Question %>: CorrectAnswer</div>
 	</script>
 
 	
 	<script src="js/libs/jquery/jquery.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.0/backbone.localStorage-min.js"></script>
 	
 	<script src="js/models/question.js"></script>
 	<script src="js/models/answer.js"></script>
 	<script src="js/models/user-answer.js"></script>
+	<script src="js/models/form.js"></script>
+	<script src="js/models/result.js"></script>
 	
 	<script src="js/collections/quiz.js"></script>
 	<script src="js/collections/user-answer.js"></script>
 	
+
 	<script src="js/views/view-util.js"></script>
 	<script src="js/views/quiz.js"></script>
 	<script src="js/views/question.js"></script>
 	<script src="js/views/answer.js"></script>
 	<script src="js/views/result.js"></script>
+	<script src="js/views/form.js"></script>
 
 	<script src="js/routers/router.js"></script>
+
+	
 	
 	<script src="js/main.js"></script>
 </body>

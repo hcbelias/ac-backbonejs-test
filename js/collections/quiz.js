@@ -3,7 +3,8 @@
 	window.App = window.App || {
         Models: {},
         Collections: {},
-        Views: {}
+        Views: {},
+        Routers: {}
     };
 
     App.Collections.Quiz = Backbone.Collection.extend({

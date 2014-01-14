@@ -1,6 +1,6 @@
 (function() {
     App.Views.Question = Backbone.View.extend({
-        tagName: 'li',
+        tagName: 'div',
 
         className: 'question',
 
@@ -8,8 +8,7 @@
 
         render: function() {
 
-            this.$el.html( this.template(this.model.toJSON()));
-            this.$el.append("<ul class='answer-list'>");
+            this.$el.html( this.template(this.model.toJSON()));            
             for (var i = 0; i < this.model.attributes.Answer.length; i++) { 
                 var answerModel = new App.Models.Answer({ 
                     Answer : this.model.attributes.Answer[i]['Answer'], 
@@ -22,8 +21,7 @@
                  });
 
                 this.$el.append(viewAnswer.$el);
-            }
-            this.$el.append("</ul>");
+            }            
             return this;
         }
     });

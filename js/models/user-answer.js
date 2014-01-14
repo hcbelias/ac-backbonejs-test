@@ -3,7 +3,8 @@
     window.App = window.App || {
         Models: {},
         Collections: {},
-        Views: {}
+        Views: {},
+        Routers: {}
     };
 
     App.Models.UserAnswer = Backbone.Model.extend({
@@ -12,11 +13,10 @@
             var key = "quizz-ac-" + model.get('UserName');
             switch(method){
                 case 'create':
-                debugger;
                     localStorage.setItem(key, JSON.stringify(model));
                 break;
                 case 'read':
-                debugger;
+					debugger;
                     var result = localStorage.getItem(key);
                     if (result){
                         result = JSON.parse(result);

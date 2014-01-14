@@ -14,8 +14,7 @@
                 this.$el.append(view.render().$el);
             }, this);
             return this;
-        },
-
+        }
     });
 
 })();
@@ -46,5 +45,12 @@ var quiz = new App.Collections.Quiz([
     "Question": "Which football player has the biggest salary?",
     "Answer" : [{ "Answer" : "Messi"}, {"Answer" : "Ibrahimovic"}, {"Answer" : "Rooney"}, {"Answer" : "Eto'o"}, {"Answer" : "Cristiano Ronaldo"}],
     "CorrectAnswer": "Eto'o"
+}
+,  
+{
+    "Id": "5",
+    "Question": "Which football player won Fifa Ballon D'Or 2013?",
+    "Answer" : [{ "Answer" : "Messi"}, {"Answer" : "Ibrahimovic"}, {"Answer" : "Rooney"}, {"Answer" : "Eto'o"}, {"Answer" : "Cristiano Ronaldo"}],
+    "CorrectAnswer": "Cristiano Ronaldo"
 }
 ]);

@@ -35,6 +35,15 @@ h3{
 	list-style-type: square;
 	margin: 0px;
 	padding: 3px;
+	
+	color: #444;
+	background-color: rgba(0,0,0,.2);
+	box-shadow: inset 1px 1px 0 rgba(0,0,0,.1),inset 0 -1px 0 rgba(0,0,0,.07);
+}
+
+.selectedAnswer{
+	background-color: black;
+	color: white;
 }
 
 .quiz-question > li{
