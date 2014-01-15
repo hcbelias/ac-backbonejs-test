@@ -44,9 +44,11 @@
                 //        questionDictionary[modelIterator.attributes.Answer[j].Answer]++;
                 //     }
                 // }
-                for (var j = 0; j < modelIterator.attributes.Answer.length; j++) {
+            debugger;
+                for (var j = 0; j < userAnswersList[i].attributes.models.length; j++) {
+                    
+                    var answerIterator = userAnswersList.models[j];
                     debugger;
-                    var answerIterator = modelIterator.attributes.Answer[j].Answer;
                     //var answerCalculateduserAnswersList.models[0].attributes.AnswerList[1].Answer
                 }
                 debugger;
