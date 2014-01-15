@@ -16,20 +16,40 @@
         },
         printAnswers:function(){
             this.$el.append("<div class=\"quiz-main-title\">Answers</div>");
+            //Iterates in each question from the quiz
             for (var i = 0; i < quiz.models.length; i++) { 
-                var iterator = quiz.models[i];
+                var modelIterator = quiz.models[i];
                  var questionModel = new App.Models.Question({ 
-                    Question : iterator.attributes.Question, 
-                    CorrectAnswer : iterator.attributes.CorrectAnswer,
-                    Id: iterator.attributes.Id
+                    Question : modelIterator.attributes.Question, 
+                    CorrectAnswer : modelIterator.attributes.CorrectAnswer,
+                    Id: modelIterator.attributes.Id
                 });
-
+                this.$el.append(modelIterator.attributes.CorrectAnswer);
                 var questionView = new App.Views.Question({ 
                      model: questionModel
                  }).render();               
-
                 this.$el.append(questionView.$el);
-                this.$el.append(iterator.attributes.CorrectAnswer);
+                var questionDictionary = {};
+                //Iterates in each answer quiz to create dictionary
+                for (var j = 0; j < modelIterator.attributes.Answer.length; j++) {
+                    var answerIterator = modelIterator.attributes.Answer[j];                    
+                    questionDictionary[answerIterator.Answer] = 0;
+                }
+                // //Iterates in each user's answers frmco the question to create dictionary
+                //     if(modelIterator.attributes.Id == userAnswersIterator.QuestionId && 
+                //         modelIterator.attributes.Answer[j].Answer == 
+                //         userAnswersList.models[i].attributes.AnswerList[1].Answer)
+                //     {
+                //         debugger;
+                //        questionDictionary[modelIterator.attributes.Answer[j].Answer]++;
+                //     }
+                // }
+                for (var j = 0; j < modelIterator.attributes.Answer.length; j++) {
+                    debugger;
+                    var answerIterator = modelIterator.attributes.Answer[j].Answer;
+                    //var answerCalculateduserAnswersList.models[0].attributes.AnswerList[1].Answer
+                }
+                debugger;
             }   
         }
     });
