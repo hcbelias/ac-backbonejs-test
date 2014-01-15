@@ -4,6 +4,8 @@
 	<meta charset="utf-8">
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
 </head>
 <body>
 
@@ -11,10 +13,10 @@
 	<div class="sites-header-primary-row" id="sites-chrome-userheader">
 		<div class="sites-header-title">
 			<div class="sites-header-image-buffer-wrapper">
-				<a href="http://www.avenuecode.com.br/" id="sites-chrome-userheader-logo">
+				<a href="http://www.avenuecode.com.br/" id="sites-chrome-userheader-logo" class="col-md-3">
 					<img id="logo-img-id" src="img/customLogo.png" alt="Avenue Code Brasil" class="sites-logo ">
 				</a>
-				<h3>AC - Backbone Quizz</h3>
+				<h1 class="col-md-9">AC - Backbone Quizz</h1>
 			</div>
 		</div>
 		
@@ -30,7 +32,7 @@
 	<script id="formTemplate" type="text/template">
 		<input type='text' id='user-name' name='user-name' placeholder='User Name'/>
 		<input type='text' id='user-email' name='user-email' placeholder='User Email'/>
-		<button type="button" id="submit-result-button" title="Submit Answers">Submit Result</button>
+		<button type="button" class="btn btn-primary" id="submit-result-button" title="Submit Answers">Submit Result</button>
 	</script>
 	
 
@@ -52,6 +54,7 @@
 
 	
 	<script src="js/libs/jquery/jquery.js"></script>
+	<script src="js/libs/bootstrap/bootstrap.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.0/backbone.localStorage-min.js"></script>
