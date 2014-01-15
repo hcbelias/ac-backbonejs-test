@@ -57,3 +57,21 @@ h3{
 .quiz-question > li{
 	list-style-type: none;
 }
+
+.quiz-template{
+	padding:15px;
+	font-size:20px;
+}
+
+.quiz-template .question .question-title{
+	font-weight:bold ;
+}
+
+.quiz-template .question .question-title strong{
+	
+}
+
+.quiz-main-title{
+	font-size: 30px;
+	font-weight: bolder;
+}

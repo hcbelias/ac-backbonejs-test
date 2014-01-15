@@ -9,7 +9,8 @@
 
     App.Models.Result = Backbone.Model.extend({
         defaults: {
-            Answer: {}
+            Quiz: {},
+            UserAnswer: []
         }
     });
 

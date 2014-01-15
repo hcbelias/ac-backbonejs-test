@@ -4,24 +4,33 @@
 
         template: template('resultTemplate'),
 
-        className: 'quiz-result',
+        className: 'quiz-template',
 
         render: function() {
-            this.loadData();
-            return this;
+            return this.loadData();
         },
 
         loadData: function(){
-            debugger;
-            userAnswersList.fetch();
-            this.model.set('UserAnswer', userAnswersList);
-            var quizModel = this.model.get('Quiz');
-            debugger;
-            $(quizModel.models).each(function(){
-                debugger;
+            this.printAnswers();
+            return this;
+        },
+        printAnswers:function(){
+            this.$el.append("<div class=\"quiz-main-title\">Answers</div>");
+            for (var i = 0; i < quiz.models.length; i++) { 
+                var iterator = quiz.models[i];
+                 var questionModel = new App.Models.Question({ 
+                    Question : iterator.attributes.Question, 
+                    CorrectAnswer : iterator.attributes.CorrectAnswer,
+                    Id: iterator.attributes.Id
+                });
 
+                var questionView = new App.Views.Question({ 
+                     model: questionModel
+                 }).render();               
 
-            });
+                this.$el.append(questionView.$el);
+                this.$el.append(iterator.attributes.CorrectAnswer);
+            }   
         }
     });
 
