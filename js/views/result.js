@@ -16,71 +16,48 @@
         },
         printAnswers:function(){
             this.$el.append("<div class=\"quiz-main-title\">Answers</div>");
-//Iterates in each question from the quiz
-for (var i = 0; i < quiz.models.length; i++) { 
-    var modelIterator = quiz.models[i];
-    var questionModel = new App.Models.Question({ 
-        Question : modelIterator.attributes.Question, 
-        CorrectAnswer : modelIterator.attributes.CorrectAnswer,
-        Id: modelIterator.attributes.Id
+
+            for (var i = 0; i < quiz.models.length; i++) { 
+                var countTotal = 0;
+                var modelIterator = quiz.models[i];
+                var questionModel = new App.Models.Question({ 
+                    Question : modelIterator.attributes.Question, 
+                    CorrectAnswer : modelIterator.attributes.CorrectAnswer,
+                    Id: modelIterator.attributes.Id
+                });
+                
+                var questionView = new App.Views.Question({ 
+                    model: questionModel
+                }).render();               
+                this.$el.append(questionView.$el);
+                this.$el.append("<div class=\"quiz-template\">Answer: " + modelIterator.attributes.CorrectAnswer + "</div>");
+                var questionDictionary = {};
+
+                for (var j = 0; j < modelIterator.attributes.Answer.length; j++) {
+                    var answerIterator = modelIterator.attributes.Answer[j];                    
+                    questionDictionary[answerIterator.Answer] = 0;
+                }
+
+                for (var j = 0; j < userAnswersList.length; j++) {
+                    var userAnswerIterator = userAnswersList.models[j];
+
+                    for (var k = 0; k < userAnswerIterator.attributes.AnswerList.length; k++) {
+                        var iterator = userAnswerIterator.attributes.AnswerList[k];
+                        if(iterator.QuestionId == modelIterator.get('Id'))
+                        {
+                            countTotal++;
+                            questionDictionary[iterator.Answer]++;
+                        }
+                    }
+                }
+                for(var key in questionDictionary)
+                {
+                    var percentageValue = 100 * questionDictionary[key] / countTotal;
+                    this.$el.append(key+": "+percentageValue.toFixed(2) +" %<br/>");
+                }
+                this.$el.append("<br/>");
+            }   
+        }
     });
-    this.$el.append(modelIterator.attributes.CorrectAnswer);
-    var questionView = new App.Views.Question({ 
-        model: questionModel
-    }).render();               
-    this.$el.append(questionView.$el);
-    var questionDictionary = {};
-//Iterates in each answer quiz to create dictionary
-for (var j = 0; j < modelIterator.attributes.Answer.length; j++) {
-    var answerIterator = modelIterator.attributes.Answer[j];                    
-    questionDictionary[answerIterator.Answer] = 0;
-}
-// //Iterates in each user's answers frmco the question to create dictionary
-//     if(modelIterator.attributes.Id == userAnswersIterator.QuestionId && 
-//         modelIterator.attributes.Answer[j].Answer == 
-//         userAnswersList.models[i].attributes.AnswerList[1].Answer)
-//     {
-//         debugger;
-//        questionDictionary[modelIterator.attributes.Answer[j].Answer]++;
-//     }
-// }
-debugger;
-for (var j = 0; j < userAnswersList.length; j++) {
-
-
-    debugger;
-    var userAnswerIterator = userAnswersList.models[j];
-
-//var answerCalculateduserAnswersList.models[0].attributes.AnswerList[1].Answer
-for (var j = 0; j < userAnswerIterator.attributes.AnswerList.length; j++) {
-
-
-    debugger;
-    var userAnswerIterator = userAnswersList.models[j];
-
-//var answerCalculateduserAnswersList.models[0].attributes.AnswerList[1].Answer
-
-
-userAnswerIterator.models[i].attributes.AnswerList[i].Answer
-
-
-
-
-
-}
-debugger;
-
-
-userAnswerIterator.models[i].attributes.AnswerList[i].Answer
-
-
-
-
-
-}
-debugger;
-}   
-}
-});
 
 })();
