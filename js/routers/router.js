@@ -10,7 +10,7 @@
         ,
         quizPage : function() {
             var FormModel = new App.Models.DataForm();
-            var FormView = new App.Views.DataForm({ model: FormModel, model2: quiz });
+            var FormView = new App.Views.DataForm({ model: FormModel });
             $('#content-form').html(FormView.render().el);
             this.loadView(new App.Views.Quiz({ collection: quiz }), true);
         },

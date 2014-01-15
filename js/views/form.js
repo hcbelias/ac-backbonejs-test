@@ -12,8 +12,7 @@
         className: 'data-form',
         template: template('formTemplate'),
         initialize: function() {
-            _.bindAll(this, 'userNameChanged');
-            _.bindAll(this, 'userEmailChanged');
+            _.bindAll(this, 'updateModel');
             this.render();
         },
         render: function() {
@@ -22,14 +21,12 @@
         },
         events: {
             'click button' : 'submitForm',
-            'change input#user-name':  'userNameChanged',
-            'change input#user-email':  'userEmailChanged',
+            'keyup .form-user-entry':  'updateModel',
         },
-        userNameChanged: function(e) {
-            this.model.UserName = $(e.target).val();
-        },
-        userEmailChanged: function(e) {
-            this.model.UserEmail = $(e.target).val();
+        updateModel: function(e) {
+            debugger;
+            var $el = $(e.target);
+            this.model[$el.data('model')] = $el.val();
         },
         submitForm: function(){
             
