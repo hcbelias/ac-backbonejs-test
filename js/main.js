@@ -1,8 +1,8 @@
 requirejs.config({
-    enforceDefine: true,
+    
     baseUrl: 'js/',
     paths: {
-        "app": 'main',
+        "main": "main",
         "jquery": "libs/jquery/jquery",
         "underscore": "libs/underscore/underscore",
         "backbone": "libs/backbone/backbone",
@@ -30,20 +30,12 @@ requirejs.config({
         },
         "backbone": {
             deps: ["jquery", "underscore"],
-            exports: "Backbone"
+            exports: "backbone"
         },
         "bootstrap": {
             deps: ["jquery"],
             exports: "Bootstrap"
-        },
-        "localStorage": {
-            deps: ["jquery", "underscore", "backbone"],
-            exports: "Backbone.localStorage"
-        },
-        "app": {
-            deps: ["jquery", "underscore", "backbone", "localStorage"],
-            exports: "Backbone.localStorage"
-        },
+        }
         
     }    
     

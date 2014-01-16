@@ -1,10 +1,18 @@
 (function() {
+    window.App = window.App || {
+            Models: {},
+            Collections: {},
+            Views: {},
+            Routers: {}
+        };
+
     App.Routers.AppRouter = Backbone.Router.extend({
         routes : {
             "" : "quizPage",
             "result" : "quizResult"
         },
         initialize: function(){
+            var userAnswersList = userAnswersList || new App.Collections.UserAnswer();
             userAnswersList.fetch({error: function(m){ alert(m) }});
         }
         ,
