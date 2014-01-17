@@ -22,6 +22,7 @@ requirejs.config({
         "resultView": "views/result",
         "formView": "views/form",
         "router": "routers/router",
+        "util": "util",
     },
     shim: {
         "underscore": {
@@ -30,34 +31,26 @@ requirejs.config({
         },
         "backbone": {
             deps: ["jquery", "underscore"],
-            exports: "backbone"
+            exports: "Backbone"
         },
         "bootstrap": {
             deps: ["jquery"],
             exports: "Bootstrap"
+        }
+        ,
+        "router": {
+            deps: ["backbone"],
+            exports: "router"
         }
         
     }    
     
 });
 
-
-
-require(["jquery", "underscore", "backbone"],
-    function ($, _, Backbone) {
+define(["jquery", "util", "underscore", "backbone", "router"],
+    function ($, util, _, backbone, router) {
         debugger;
-        console.log("Test output");
-        console.log("$: " + typeof $);
-        console.log("_: " + typeof _);
-        console.log("Backbone: " + typeof Backbone);
-
-        window.App = window.App || {
-            Models: {},
-            Collections: {},
-            Views: {},
-            Routers: {}
-        };
-
+        window.App = GetApp(); 
         var router = new App.Routers.AppRouter();
         Backbone.history.start();
 });

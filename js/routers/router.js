@@ -1,12 +1,9 @@
-(function() {
-    window.App = window.App || {
-            Models: {},
-            Collections: {},
-            Views: {},
-            Routers: {}
-        };
 
-    App.Routers.AppRouter = Backbone.Router.extend({
+define([],
+    function () {
+        debugger;
+        window.App = GetApp();
+        App.Routers.AppRouter = Backbone.Router.extend({
         routes : {
             "" : "quizPage",
             "result" : "quizResult"
@@ -22,7 +19,7 @@
             $('#content-form').html(FormView.render().el);
             this.loadView(new App.Views.Quiz({ collection: quiz }), true);
         },
-        quizResult : function() {        	
+        quizResult : function() {           
             this.loadView(new App.Views.Result(), false);
         },
         loadView : function(view, showForm) {
@@ -37,4 +34,4 @@
             $('#content-body').html(view.render().el);
         }
     });
-}());
+});
