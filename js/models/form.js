@@ -1,4 +1,5 @@
-(function() {
+define(["backbone"],
+    function (Backbone) {
 
     window.App = window.App || {
         Models: {},
@@ -29,4 +30,4 @@
 
     });
 
-})();
+});

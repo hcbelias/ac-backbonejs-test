@@ -1,16 +1,11 @@
-(function() {
-    window.App = window.App || {
-        Models: {},
-        Collections: {},
-        Views: {},
-        Routers: {}
-    };
-
+define(["backbone", "answerModel", "answerUserModel",,"util"],
+    function (Backbone, AnswerModel, AnswerUserModel,Util) {
+	debugger;
 
     App.Views.DataForm = Backbone.View.extend({
         tagName: 'div',
         className: 'data-form',
-        template: template('formTemplate'),
+        template: Util.template('formTemplate'),
         initialize: function() {
             _.bindAll(this, 'userNameChanged');
             _.bindAll(this, 'userEmailChanged');
@@ -35,14 +30,14 @@
             
             if(this.validateForm())
             {
-                var userAnswer = new App.Models.UserAnswer();
+                var userAnswer = new AnswerUserModel();
                 userAnswer.set('UserName', this.model.UserName);
                 userAnswer.set('UserEmail', this.model.UserEmail);  
                 var answerList = $('.selectedAnswer').map(function() { 
                     var questionAnswer = $(this).text().trim();
                     var questionId = $(this).attr('name').split('_')[1];
                     var modelQuiz = quiz.models[questionId-1].attributes;
-                    var modelAnswer = new App.Models.Answer();
+                    var modelAnswer = new AnswerModel();
                     modelAnswer.set('CorrectAnswer', modelQuiz.CorrectAnswer);
                     modelAnswer.set('Answer', questionAnswer);
                     modelAnswer.set('QuestionId', questionId);
@@ -100,5 +95,5 @@
             return success;
         }
     });
-})();
+});
 

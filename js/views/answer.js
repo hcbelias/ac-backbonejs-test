@@ -1,12 +1,5 @@
-(function() {
-	window.App = window.App || {
-        Models: {},
-        Collections: {},
-        Views: {},
-        Routers: {}
-    };
-
-
+define(["backbone"],
+    function (Backbone) {
     App.Views.Answer = Backbone.View.extend({
         tagName: 'li',
 

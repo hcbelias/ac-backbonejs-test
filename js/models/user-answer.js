@@ -1,11 +1,5 @@
-(function() {
-
-    window.App = window.App || {
-        Models: {},
-        Collections: {},
-        Views: {},
-        Routers: {}
-    };
+define(["backbone"],
+    function (Backbone) {
 
     App.Models.UserAnswer = Backbone.Model.extend({
         sync: function(method, model, options){
@@ -39,4 +33,4 @@
         }
     });
 
-})();
+});

@@ -1,15 +1,10 @@
-(function() {
+define(["backbone", "localStorage", "userAnswerModel"],
+    function (Backbone, LocalStorage, UserAnswerModel) {
 
-    window.App = window.App || {
-        Models: {},
-        Collections: {},
-        Views: {},
-        Routers: {}
-    };
-
+debugger;
     App.Collections.UserAnswer = Backbone.Collection.extend({
-        model: App.Models.UserAnswer,
-        localStorage: new Backbone.LocalStorage("quizz-ac-"),
+        model: UserAnswerModel,
+        localStorage: new LocalStorage("quizz-ac-"),
         sync: function(method, model, options){
             options || (options = {});
             var key = "quizz-ac-" + model.get('UserName');
@@ -19,7 +14,7 @@
                     userAnswersList._reset();
                     for (var key in localStorage){
                         var jsonData = localStorage.getItem(key);
-                        var userAnswer = new App.Models.UserAnswer();
+                        var userAnswer = new UserAnswerModel();
                         userAnswer = jQuery.parseJSON(jsonData);
                         userAnswersList.add(userAnswer);
                     }
@@ -29,7 +24,6 @@
         }
     });
 
+	var userAnswersList = userAnswersList || new App.Collections.UserAnswer();
+});
 
-})();
-
-var userAnswersList = userAnswersList || new App.Collections.UserAnswer();

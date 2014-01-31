@@ -1,4 +1,6 @@
-(function() {
+define(["backbone", "util", "questionModel", "questionView"],
+    function (Backbone, Util, QuestionModel, QuestionView) {
+
     App.Views.Result = Backbone.View.extend({    
         tagName: 'div',
 
@@ -20,13 +22,13 @@
             for (var i = 0; i < quiz.models.length; i++) { 
                 var countTotal = 0;
                 var modelIterator = quiz.models[i];
-                var questionModel = new App.Models.Question({ 
+                var questionModel = new QuestionModel({ 
                     Question : modelIterator.attributes.Question, 
                     CorrectAnswer : modelIterator.attributes.CorrectAnswer,
                     Id: modelIterator.attributes.Id
                 });
                 
-                var questionView = new App.Views.Question({ 
+                var questionView = new QuestionView({ 
                     model: questionModel
                 }).render();               
                 this.$el.append(questionView.$el);
@@ -60,4 +62,4 @@
         }
     });
 
-})();
+});

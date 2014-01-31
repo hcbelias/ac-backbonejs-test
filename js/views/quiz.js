@@ -1,25 +1,24 @@
-(function() {
-    App.Views.Quiz = Backbone.View.extend({    
-        tagName: 'ul',
+define(["backbone", "questionView", "quizCollection"],
+    function (Backbone, QuestionView, QuizCollection) {
+		App.Views.Quiz = Backbone.View.extend({    
+			tagName: 'ul',
 
-        className: 'quiz-question',
+			className: 'quiz-question',
 
-        initialize: function() {
-            userAnswersList.fetch({error: function(m){ alert(m) }});
-        },
+			initialize: function() {
+				userAnswersList.fetch({error: function(m){ alert(m) }});
+			},
 
-        render: function() {
-            this.collection.each(function(question) {
-                var view = new App.Views.Question({ model: question });            
-                this.$el.append(view.render().$el);
-            }, this);
-            return this;
-        }
-    });
-
-})();
-
-var quiz = new App.Collections.Quiz([
+			render: function() {
+				this.collection.each(function(question) {
+					var view = new QuestionView({ model: question });            
+					this.$el.append(view.render().$el);
+				}, this);
+				return this;
+			}
+		});
+	debugger;
+	var quiz = new QuizCollection([
 {
     "Id": "1",
     "Question": "Considering only the championships that took place from 1971, which brazilian football club is the greatest national champion?",
@@ -54,3 +53,7 @@ var quiz = new App.Collections.Quiz([
     "CorrectAnswer": "Cristiano Ronaldo"
 }
 ]);
+
+
+});
+
